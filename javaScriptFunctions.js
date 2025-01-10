@@ -55,4 +55,11 @@ for (i in FujiObject) {
     }
 }
 
-
+for (i in FujiObject) {
+    console.log(FujiObject[i])
+    for (ii of FujiObject[i]) {
+        console.log(ii) // prints Object details
+        // console.log(ii.Product)
+        console.log(ii.Cost)
+    }
+}
