@@ -38,7 +38,7 @@ for y in range(0,20):
         # ))
         print(str(cw*x+cw/2) + ", " + str(cw*y+cw/2))
         elements.append(svg.Circle(
-            cx=cw*x+cw/2, cy=cw*y+cw/2, r=cw/2*noise([cw*x+cw/2, cw*y+cw/2]),
+            cx=cw*x+cw/2, cy=cw*y+cw/2, r=cw*noise([cw*x+cw/2, cw*y+cw/2]),
             stroke="white",
             stroke_width=1
         ))
