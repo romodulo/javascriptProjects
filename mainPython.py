@@ -1,21 +1,43 @@
+import svg
+
 sw = 500
-cw = 500/20
-
-def Circle(*opt_arguments):
-    pass
-    #Circle has a radius of 10
+# nc = None
+cw = int(500/20)
+print(int(cw))
 
 
 
+#Circle has a radius of 10
 
-elems = []
-circles = [] #for test purposes
-for x in range(0,20):
-    for y in range(0,20):
-        elems.append((x,y))
-        ciX=x*cw
-        ciY=y*cw
-        circles.append(Circle(ciX,ciY))
-        print(x,y)
+
+
+elems = [] #test-list
+elements = [] 
+for x in range(0,100):
+    for y in range(0,100):
+        elems.append((x,y)) 
+        circlePX=x*cw
+        circlePY=y*cw
+        elements.append(svg.Circle(
+            cx=circlePX, cy=circlePY, r=cw,
+            # stroke="white", # creates a stroke (a.k.a a border)
+            fill="black"
+            # stroke_width=5 # stroke-width: self-explanatory
+            ))
+        # print(x,y)
+# test loop
 # for i in elems:
 #     print(i)
+# test loop
+# for i in elements:
+#     print(i)
+
+canvas = svg.SVG(
+    width = sw,
+    height = sw,
+    elements= elements
+)
+
+fileOpen = open("test.svg", "w")
+fileOpen.write(str(canvas))
+fileOpen.close()
