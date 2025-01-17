@@ -63,3 +63,19 @@ for (i in FujiObject) {
         console.log(ii.Cost)
     }
 }
+
+console.log('new-line')
+//to do  : test if I can use objects in javaScript 
+// "without a value paired to a key" sometimes
+//
+
+let objectWithKeysOnly = {"hello", "world", "test"}
+console.log(objectWithKeysOnly)
+
+//
+//i tested it, and it doesn't seem to work
+//i got an error.
+
+//
+//i left the error.
+
