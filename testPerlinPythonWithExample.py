@@ -28,9 +28,10 @@ for x in range(0,21):
         # print(x,y)
 
 noise = PerlinNoise()
-cw = sw/20
-for y in range(0,22):
-    for x in range(0,22):
+nc=40
+cw = sw/nc
+for y in range(0,nc):
+    for x in range(0,nc):
         # elements.append(svg.Circle(
         #     cx=cw*x, cy=cw*y, r=cw,
         #     stroke="red",
@@ -57,7 +58,13 @@ canvas = svg.SVG(
     elements= elements
 )
 
-filename = "6th"
+# initiate initial values
+rotateValues = [it for it in range(1,11)]
+print(rotateValues)
+# open a counter file
+openCounterFile = "open(null)"
+
+filename = "7th"
 
 fileOpen = open(f"./svgsFolder/{filename}.svg", "w")
 fileOpen.write(str(canvas))
