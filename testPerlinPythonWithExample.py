@@ -28,9 +28,9 @@ for x in range(0,21):
         # print(x,y)
 
 noise = PerlinNoise()
-cw = sw/100
-for y in range(0,100):
-    for x in range(0,100):
+cw = sw/20
+for y in range(0,22):
+    for x in range(0,22):
         # elements.append(svg.Circle(
         #     cx=cw*x, cy=cw*y, r=cw,
         #     stroke="red",
@@ -38,7 +38,7 @@ for y in range(0,100):
         # ))
         print(str(cw*x+cw/2) + ", " + str(cw*y+cw/2))
         elements.append(svg.Circle(
-            cx=cw*x+cw/2, cy=cw*y+cw/2, r=cw*noise([(cw*x)/100, (cw*y+cw)/100]),
+            cx=cw*x+cw/2, cy=cw*y+cw/2, r=cw/2*noise([(cw*x+cw/2)/100, (cw*y+cw/2)/100]),
             stroke="white",
             stroke_width=1
         ))
