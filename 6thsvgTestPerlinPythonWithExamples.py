@@ -14,36 +14,38 @@ cw = int(500/20)
 
 elems = [] #test-list
 elements = [] 
-for x in range(0,21):
-    for y in range(0,21):
-        elems.append((x,y)) 
-        circlePX=x*cw
-        circlePY=y*cw
-        elements.append(svg.Circle(
-            cx=circlePX, cy=circlePY, r=cw,
-            # stroke="white", # creates a stroke (a.k.a a border)
-            fill="black"
-            # stroke_width=5 # stroke-width: self-explanatory
-            ))
-        # print(x,y)
+def createBackground():
+    for x in range(0,21):
+        for y in range(0,21):
+            elems.append((x,y)) 
+            circlePX=x*cw
+            circlePY=y*cw
+            elements.append(svg.Circle(
+                cx=circlePX, cy=circlePY, r=cw,
+                # stroke="white", # creates a stroke (a.k.a a border)
+                fill="black"
+                # stroke_width=5 # stroke-width: self-explanatory
+                ))
+            # print(x,y)
+
 
 noise = PerlinNoise()
 nc=100
 cw = sw/nc
-multiplier = 2 # 2 works. 1.5 doesn'ts.
+multiplier = 10 # 2 works. 1.5 doesn'ts.
 def run1stLoop():
     for x in range(0,nc):
-        for y in range(0,nc*multiplier):
+        for y in range(0,nc):
             # elements.append(svg.Circle(
             #     cx=cw*x, cy=cw*y, r=cw,
             #     stroke="red",
             #     stroke_width=1
             # ))
-            noiseValue = noise([(cw*x+cw/2)/100, (cw/multiplier*y+cw/multiplier/2)/100])
+            noiseValue = noise([1, y])
             elements.append(svg.Circle(
-                cx=cw*x+cw/2, cy=cw/multiplier*y+cw/multiplier/2, r=cw/2*noiseValue*2,
+                cx=cw*x+cw/2, cy=cw*y+cw/2, r=cw/2*noiseValue*2,
                 stroke="white",
-                # fill="blue",
+                fill="none",
                 stroke_width=1
             ))
             # print(str(cw*x+cw/2) + ", " + str(cw*y+cw/2) + ", " + str(noiseValue))
@@ -69,7 +71,7 @@ def run2ndLoop():
             elements.append(svg.Circle( # you are working on the 2nd loop layer
                 cx=cw*x+cw/(2), cy=cw*y+cw/(2**10), r=cw/2*noiseValue*(2),
                 stroke="skyblue",
-                # fill="skyblue",
+                fill="none",
                 stroke_width=1
             ))
             # print(str(cw*x+cw/2) + ", " + str(cw*y+cw/2) + ", " + str(noiseValue))
